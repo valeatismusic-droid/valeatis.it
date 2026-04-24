@@ -258,9 +258,8 @@
 
   .hero-logo-circle {
     position: relative;
-    width: 300px;
-    height: 320px;
     flex-shrink: 0;
+    overflow: visible;
   }
 
   .hero-logo-circle svg {
@@ -839,20 +838,12 @@
     .hero-right {
       width: 100%;
       justify-content: center;
-      padding-top: 8rem;
+      padding-top: 11rem;
       order: 1;
     }
     .hero-logo-wrap {
       transform: none;
       margin-bottom: 0;
-    }
-    .hero-logo-circle {
-      width: 370px;
-      height: 391px;
-    }
-    .hero-logo-circle svg {
-      width: 370px;
-      height: 391px;
     }
     .hero-logo-name {
       font-size: 16px;
@@ -944,14 +935,6 @@
     }
     .hero-right {
       padding-top: 2.5rem;
-    }
-    .hero-logo-circle {
-      width: 190px;
-      height: 203px;
-    }
-    .hero-logo-circle svg {
-      width: 190px;
-      height: 203px;
     }
     .hero-title {
       font-size: 2.2rem;
@@ -1230,17 +1213,17 @@
     function adjustLogo() {
       const clef = document.getElementById('clefGroup');
       const svg = document.getElementById('logoSvg');
-      if (!clef) return;
-      // Ripristina sempre prima la scala della chiave originale
+      const circle = svg ? svg.parentElement : null;
+      if (!clef || !svg) return;
       clef.setAttribute('transform', 'translate(70, 72) scale(3.0)');
-      if (svg) {
-        if (window.innerWidth <= 768) {
-          svg.setAttribute('width', '370');
-          svg.setAttribute('height', '391');
-        } else {
-          svg.setAttribute('width', '300');
-          svg.setAttribute('height', '320');
-        }
+      if (window.innerWidth <= 768) {
+        svg.setAttribute('width', '340');
+        svg.setAttribute('height', '359');
+        if (circle) { circle.style.width = '340px'; circle.style.height = '359px'; }
+      } else {
+        svg.setAttribute('width', '300');
+        svg.setAttribute('height', '320');
+        if (circle) { circle.style.width = '300px'; circle.style.height = '320px'; }
       }
     }
     adjustLogo();
