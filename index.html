@@ -839,7 +839,7 @@
     .hero-right {
       width: 100%;
       justify-content: center;
-      padding-top: 3.5rem;
+      padding-top: 8rem;
       order: 1;
     }
     .hero-logo-wrap {
@@ -847,12 +847,12 @@
       margin-bottom: 0;
     }
     .hero-logo-circle {
-      width: 220px;
-      height: 235px;
+      width: 370px;
+      height: 391px;
     }
     .hero-logo-circle svg {
-      width: 220px;
-      height: 235px;
+      width: 370px;
+      height: 391px;
     }
     .hero-logo-name {
       font-size: 16px;
@@ -993,7 +993,7 @@
 
         <!-- Cerchio + V + chiave — tutto in un SVG, niente canvas -->
         <div class="hero-logo-circle">
-          <svg width="300" height="320" viewBox="0 0 300 320" xmlns="http://www.w3.org/2000/svg">
+          <svg id="logoSvg" width="300" height="320" viewBox="0 0 300 320" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="vGoldH" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#e8d5b0"/>
@@ -1023,7 +1023,7 @@
               fill="none" stroke="url(#vGoldH)" stroke-width="0.9">V</text>
 
             <!-- Chiave di violino — path SVG inline, identico su tutti i dispositivi -->
-            <g transform="translate(70, 72) scale(3.0)" opacity="0.83">
+            <g id="clefGroup" transform="translate(70, 72) scale(3.0)" opacity="0.86">
               <g transform="translate(-0.7673966,-1.5263084)">
                 <path
                   d="M 8.7730411,30.128833 C 6.5600628,28.815541 6.8544948,24.993919 9.222717,24.010019 C 12.043182,21.916392 16.663398,25.131791 15.605969,28.506152 C 14.218057,32.88731 7.5728028,34.174686 4.6690278,30.600616 C 2.2911251,27.740864 3.0491617,23.097214 5.8655388,20.809681 C 8.9520581,16.924082 12.738146,13.212042 13.868442,8.2016868 C 14.168213,6.3491224 13.585127,4.2003341 11.946314,3.1349053 C 9.843128,2.5716614 7.8124548,4.7785698 8.1070868,6.8269758 C 7.1177088,14.321941 9.329485,21.695938 11.132476,28.888516 C 11.999067,32.52301 13.062129,36.22785 12.66972,40.003004 C 12.06073,42.001356 8.8122631,42.193525 8.0464778,40.216718 C 7.3251358,38.68666 10.755372,38.630299 9.566929,36.859369 C 8.8479561,35.13024 6.2551558,36.286985 5.8801208,37.749164 C 4.9440598,40.824202 8.5406588,43.942852 11.481446,42.744306 C 13.584992,41.792679 14.197968,39.14739 13.975264,37.035791 C 13.619436,34.327062 12.803272,31.701939 12.206353,29.039021 C 10.452095,22.012165 8.6541531,14.777915 9.492918,7.4829238 C 9.382672,5.3732745 12.613034,4.6283713 12.821979,7.0206048 C 13.164004,8.6994498 12.058815,10.141384 11.387909,11.579846 C 9.519577,14.949227 6.6424678,17.570778 4.0019568,20.313473 C 1.6750434,23.181155 0.64357401,27.662253 2.8943723,30.862286 C 6.1209338,35.319936 13.81026,35.237439 16.828356,30.584771 C 18.432525,28.235916 18.282003,24.701438 15.991879,22.836437 C 13.590081,20.622459 9.305786,20.612983 7.2431718,23.303065 C 5.7117218,25.012215 5.1308558,28.09652 7.0514998,29.740977 C 7.5391078,30.095352 8.1776658,30.280004 8.7730411,30.128833 z"
@@ -1225,6 +1225,28 @@
 </footer>
 
 <script>
+  // Scala intero logo su schermi stretti
+  (function() {
+    function adjustLogo() {
+      const clef = document.getElementById('clefGroup');
+      const svg = document.getElementById('logoSvg');
+      if (!clef) return;
+      // Ripristina sempre prima la scala della chiave originale
+      clef.setAttribute('transform', 'translate(70, 72) scale(3.0)');
+      if (svg) {
+        if (window.innerWidth <= 768) {
+          svg.setAttribute('width', '370');
+          svg.setAttribute('height', '391');
+        } else {
+          svg.setAttribute('width', '300');
+          svg.setAttribute('height', '320');
+        }
+      }
+    }
+    adjustLogo();
+    window.addEventListener('resize', adjustLogo);
+  })();
+
   // Custom cursor
   const cursor = document.getElementById('cursor');
   const cursorRing = document.getElementById('cursorRing');
