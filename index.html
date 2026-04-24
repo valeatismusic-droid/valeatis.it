@@ -259,7 +259,7 @@
   .hero-logo-circle {
     position: relative;
     width: 300px;
-    height: 300px;
+    height: 320px;
     flex-shrink: 0;
   }
 
@@ -848,11 +848,11 @@
     }
     .hero-logo-circle {
       width: 220px;
-      height: 220px;
+      height: 235px;
     }
     .hero-logo-circle svg {
       width: 220px;
-      height: 220px;
+      height: 235px;
     }
     .hero-logo-name {
       font-size: 16px;
@@ -947,11 +947,11 @@
     }
     .hero-logo-circle {
       width: 190px;
-      height: 190px;
+      height: 203px;
     }
     .hero-logo-circle svg {
       width: 190px;
-      height: 190px;
+      height: 203px;
     }
     .hero-title {
       font-size: 2.2rem;
@@ -993,7 +993,7 @@
 
         <!-- Cerchio + V + chiave — tutto in un SVG, niente canvas -->
         <div class="hero-logo-circle">
-          <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+          <svg width="300" height="320" viewBox="0 0 300 320" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="vGoldH" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#e8d5b0"/>
@@ -1011,26 +1011,26 @@
               </radialGradient>
             </defs>
 
-            <!-- Cerchio centrato esattamente a 150,150 -->
-            <circle cx="150" cy="150" r="132" fill="none" stroke="rgba(201,169,110,0.35)" stroke-width="0.8"/>
-            <circle cx="150" cy="150" r="135" fill="none" stroke="rgba(201,169,110,0.15)" stroke-width="0.4"/>
+            <!-- Cerchio centrato più in basso per contenere la chiave -->
+            <circle cx="150" cy="165" r="132" fill="none" stroke="rgba(201,169,110,0.35)" stroke-width="0.8"/>
+            <circle cx="150" cy="165" r="135" fill="none" stroke="rgba(201,169,110,0.15)" stroke-width="0.4"/>
 
-            <!-- V stilizzata — centrata nel viewBox -->
-            <text x="150" y="235"
+            <!-- V stilizzata -->
+            <text x="150" y="250"
               text-anchor="middle"
               font-family="'Cormorant Garamond', Georgia, serif"
               font-size="190" font-weight="300"
               fill="none" stroke="url(#vGoldH)" stroke-width="0.9">V</text>
 
             <!-- Chiave di violino -->
-            <text x="108" y="172"
+            <text x="108" y="185"
               text-anchor="middle"
               font-family="'Segoe UI Symbol','Apple Symbols','Arial Unicode MS',serif"
               font-size="115"
               fill="url(#clefGoldH)" opacity="0.88">𝄞</text>
 
-            <!-- Percorso orbita — stesso centro del cerchio: 150,150 r=132 -->
-            <path id="orbitRing" d="M 150,18 A 132,132 0 1,1 149.99,18" fill="none"/>
+            <!-- Percorso orbita — centro 150,165 r=132 → top a y=33 -->
+            <path id="orbitRing" d="M 150,33 A 132,132 0 1,1 149.99,33" fill="none"/>
 
             <!-- Puntino orbitante -->
             <circle r="9" fill="url(#dotGlow)" opacity="0.9">
