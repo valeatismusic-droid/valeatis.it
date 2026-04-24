@@ -937,6 +937,30 @@
     }
   }
 
+  /* Mobile portrait — hero extra compatto */
+  @media (max-width: 768px) and (orientation: portrait) {
+    .hero {
+      padding: 0.5rem 0 0;
+    }
+    .hero-right {
+      padding-top: 2.5rem;
+    }
+    .hero-logo-circle {
+      width: 190px;
+      height: 190px;
+    }
+    .hero-logo-circle svg {
+      width: 190px;
+      height: 190px;
+    }
+    .hero-title {
+      font-size: 2.2rem;
+    }
+    .hero-cta {
+      margin-top: 1rem;
+    }
+  }
+
   @media (max-width: 400px) {
     .hero-title { font-size: 3.2rem; }
     .about-headline { font-size: 2rem; }
@@ -987,25 +1011,28 @@
               </radialGradient>
             </defs>
 
-            <!-- Cerchio esterno -->
-            <circle cx="150" cy="162" r="132" fill="none" stroke="rgba(201,169,110,0.35)" stroke-width="0.8"/>
-            <circle cx="150" cy="162" r="135" fill="none" stroke="rgba(201,169,110,0.15)" stroke-width="0.4"/>
+            <!-- Cerchio centrato esattamente a 150,150 -->
+            <circle cx="150" cy="150" r="132" fill="none" stroke="rgba(201,169,110,0.35)" stroke-width="0.8"/>
+            <circle cx="150" cy="150" r="135" fill="none" stroke="rgba(201,169,110,0.15)" stroke-width="0.4"/>
 
-            <!-- V stilizzata -->
-            <text x="150" y="247"
+            <!-- V stilizzata — centrata nel viewBox -->
+            <text x="150" y="235"
               text-anchor="middle"
               font-family="'Cormorant Garamond', Georgia, serif"
               font-size="190" font-weight="300"
               fill="none" stroke="url(#vGoldH)" stroke-width="0.9">V</text>
 
             <!-- Chiave di violino -->
-            <text x="112" y="184"
+            <text x="108" y="172"
               text-anchor="middle"
               font-family="'Segoe UI Symbol','Apple Symbols','Arial Unicode MS',serif"
               font-size="115"
               fill="url(#clefGoldH)" opacity="0.88">𝄞</text>
 
-            <!-- Puntino orbitante — animato via SVG animateMotion -->
+            <!-- Percorso orbita — stesso centro del cerchio: 150,150 r=132 -->
+            <path id="orbitRing" d="M 150,18 A 132,132 0 1,1 149.99,18" fill="none"/>
+
+            <!-- Puntino orbitante -->
             <circle r="9" fill="url(#dotGlow)" opacity="0.9">
               <animateMotion dur="20s" repeatCount="indefinite">
                 <mpath href="#orbitRing"/>
@@ -1016,9 +1043,6 @@
                 <mpath href="#orbitRing"/>
               </animateMotion>
             </circle>
-
-            <!-- Percorso orbita invisibile -->
-            <path id="orbitRing" d="M 150,30 A 132,132 0 1,1 149.99,30" fill="none"/>
           </svg>
         </div>
 
