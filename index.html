@@ -1022,12 +1022,19 @@
               font-size="190" font-weight="300"
               fill="none" stroke="url(#vGoldH)" stroke-width="0.9">V</text>
 
-            <!-- Chiave di violino -->
-            <text x="108" y="185"
-              text-anchor="middle"
-              font-family="'Segoe UI Symbol','Apple Symbols','Arial Unicode MS',serif"
-              font-size="115"
-              fill="url(#clefGoldH)" opacity="0.88">𝄞</text>
+            <!-- Chiave di violino in foreignObject — dimensione garantita su tutti i browser -->
+            <foreignObject x="60" y="20" width="90" height="185">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="
+                width:90px;height:185px;overflow:hidden;
+                display:flex;align-items:center;justify-content:center;
+                font-family:'Segoe UI Symbol','Apple Symbols','Arial Unicode MS',sans-serif;
+                font-size:120px;line-height:1;
+                background:linear-gradient(to bottom,#e8d5b0,#c9a96e);
+                -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+                background-clip:text;
+                opacity:0.9;
+              ">𝄞</div>
+            </foreignObject>
 
             <!-- Percorso orbita — centro 150,165 r=132 → top a y=33 -->
             <path id="orbitRing" d="M 150,33 A 132,132 0 1,1 149.99,33" fill="none"/>
