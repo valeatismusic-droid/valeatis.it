@@ -843,9 +843,31 @@
       order: 1;
     }
     .hero-logo-wrap {
-      transform: scale(0.95);
-      transform-origin: center center;
-      margin-bottom: -30px;
+      transform: none;
+      margin-bottom: 0;
+    }
+    .hero-logo-circle {
+      width: 220px;
+      height: 220px;
+    }
+    .hero-logo-circle svg {
+      width: 220px;
+      height: 220px;
+    }
+    .hero-logo-name {
+      font-size: 16px;
+      letter-spacing: 7px;
+      margin-top: 8px;
+    }
+    .hero-logo-tagline {
+      font-size: 8px;
+      letter-spacing: 4px;
+      margin-top: 5px;
+    }
+    .hero-logo-location {
+      font-size: 7px;
+      letter-spacing: 2px;
+      margin-top: 4px;
     }
     .hero-subtitle { max-width: 100%; }
     .hero-cta {
@@ -985,12 +1007,12 @@
 
             <!-- Puntino orbitante — animato via SVG animateMotion -->
             <circle r="9" fill="url(#dotGlow)" opacity="0.9">
-              <animateMotion dur="12s" repeatCount="indefinite">
+              <animateMotion dur="20s" repeatCount="indefinite">
                 <mpath href="#orbitRing"/>
               </animateMotion>
             </circle>
             <circle r="4" fill="#e8d5b0">
-              <animateMotion dur="12s" repeatCount="indefinite">
+              <animateMotion dur="20s" repeatCount="indefinite">
                 <mpath href="#orbitRing"/>
               </animateMotion>
             </circle>
