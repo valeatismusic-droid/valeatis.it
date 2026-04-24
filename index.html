@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valeatis — Vocal Coaching</title>
+<title>Valèa — Vocal Coaching</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@300;400&family=Jost:wght@200;300&display=swap" rel="stylesheet">
 <style>
@@ -99,20 +99,39 @@
 
   /* Hero Section */
   .hero {
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    height: 58vh;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: relative;
     overflow: hidden;
+    text-align: center;
+    background: linear-gradient(135deg, #1a1610 0%, #0a0a0a 50%, #1c1810 100%);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(ellipse, rgba(201,169,110,0.07) 0%, transparent 70%);
+    pointer-events: none;
+    animation: breathe 6s ease-in-out infinite;
   }
 
   .hero-left {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding: 0 4rem 8rem 4rem;
+    align-items: center;
+    padding: 0 2rem 1rem;
     position: relative;
     z-index: 2;
+    order: 2;
   }
 
   .hero-eyebrow {
@@ -122,7 +141,7 @@
     letter-spacing: 0.4em;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     opacity: 0;
     animation: fadeUp 1.2s var(--transition) 0.3s forwards;
   }
@@ -130,8 +149,8 @@
   .hero-title {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
-    font-size: clamp(4.5rem, 8vw, 8rem);
-    line-height: 0.9;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    line-height: 0.95;
     letter-spacing: -0.02em;
     color: var(--white);
     opacity: 0;
@@ -144,7 +163,7 @@
   }
 
   .hero-subtitle {
-    margin-top: 2.5rem;
+    margin-top: 1.2rem;
     font-size: 0.75rem;
     font-weight: 200;
     letter-spacing: 0.2em;
@@ -157,7 +176,7 @@
   }
 
   .hero-cta {
-    margin-top: 4rem;
+    margin-top: 2rem;
     opacity: 0;
     animation: fadeUp 1.2s var(--transition) 0.9s forwards;
   }
@@ -211,49 +230,78 @@
   }
 
   .hero-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    overflow: hidden;
+    z-index: 2;
+    order: 1;
+    padding-bottom: 1rem;
+    padding-top: 9.5rem;
   }
 
   .hero-image-container {
-    position: absolute;
-    inset: 0;
     opacity: 0;
     animation: fadeIn 1.8s ease 0.2s forwards;
   }
 
-  /* Placeholder for hero image — elegant abstract */
-  .hero-visual {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #1a1610 0%, #0d0d0d 40%, #1c1810 100%);
+  /* Logo hero container */
+  .hero-logo-wrap {
     position: relative;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+    opacity: 0;
+    animation: fadeIn 1.4s ease 0.3s forwards;
   }
 
-  .hero-visual::before {
-    content: '';
+  .hero-logo-circle {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    flex-shrink: 0;
+  }
+
+  .hero-logo-circle canvas {
     position: absolute;
-    top: -20%;
-    right: -10%;
-    width: 70%;
-    height: 70%;
-    background: radial-gradient(ellipse, rgba(201,169,110,0.12) 0%, transparent 70%);
-    animation: breathe 6s ease-in-out infinite;
+    top: 0; left: 0;
+    width: 300px;
+    height: 300px;
   }
 
-  .hero-visual::after {
-    content: '';
-    position: absolute;
-    bottom: 10%;
-    left: 10%;
-    width: 50%;
-    height: 50%;
-    background: radial-gradient(ellipse, rgba(201,169,110,0.06) 0%, transparent 70%);
-    animation: breathe 6s ease-in-out infinite 3s;
+  .hero-logo-name {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 10px;
+    color: #c9a96e;
+    margin-top: 10px;
+    text-indent: 10px;
   }
 
-  /* Large decorative V */
+  .hero-logo-tagline {
+    font-family: 'Jost', sans-serif;
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 5px;
+    color: #b8b8b0;
+    margin-top: 7px;
+    text-transform: uppercase;
+    text-indent: 5px;
+  }
+
+  .hero-logo-location {
+    font-family: 'Jost', sans-serif;
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: #444440;
+    margin-top: 5px;
+    text-indent: 3px;
+  }
+
+  /* Large decorative V — kept for reference but replaced */
   .hero-letter {
     position: absolute;
     top: 50%;
@@ -796,15 +844,26 @@
       height: 260px;
       order: 0;
     }
-    .hero-letter {
-      font-size: 70vw;
+    .hero-right {
+      width: 100%;
+      justify-content: center;
+    }
+    #heroLogoWrap {
+      width: 220px !important;
+      height: 220px !important;
+      transform: scale(0.75);
+      transform-origin: center center;
+    }
+    #orbitCanvas {
+      width: 220px !important;
+      height: 220px !important;
     }
     .hero-subtitle { max-width: 100%; }
     .hero-cta {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
-      align-items: flex-start;
+      align-items: center;
     }
     .btn-ghost { margin-left: 0; }
     .scroll-indicator { display: none; }
@@ -881,7 +940,7 @@
 
 <!-- Navigation -->
 <nav>
-  <a href="#" class="nav-logo">Valeatis</a>
+  <a href="#" class="nav-logo">Valèa</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Lessons</a></li>
@@ -891,23 +950,60 @@
 
 <!-- Hero -->
 <section class="hero">
+
+  <!-- Logo Valèa definitivo — completo -->
+  <div class="hero-right">
+    <div class="hero-image-container">
+      <div class="hero-logo-wrap">
+
+        <!-- Cerchio + V + chiave -->
+        <div class="hero-logo-circle">
+          <canvas id="orbitCanvas" width="300" height="300"></canvas>
+          <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:0;left:0;">
+            <defs>
+              <linearGradient id="vGoldH" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#e8d5b0"/>
+                <stop offset="50%" stop-color="#c9a96e"/>
+                <stop offset="100%" stop-color="#a07840"/>
+              </linearGradient>
+              <linearGradient id="clefGoldH" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#e8d5b0"/>
+                <stop offset="100%" stop-color="#c9a96e"/>
+              </linearGradient>
+            </defs>
+            <!-- V stilizzata, tratto fine -->
+            <text x="150" y="247"
+              text-anchor="middle"
+              font-family="'Cormorant Garamond', Georgia, serif"
+              font-size="190" font-weight="300"
+              fill="none" stroke="url(#vGoldH)" stroke-width="0.9">V</text>
+            <!-- Chiave di violino -->
+            <text x="112" y="184"
+              text-anchor="middle"
+              font-family="'Segoe UI Symbol','Apple Symbols','Arial Unicode MS',serif"
+              font-size="115"
+              fill="url(#clefGoldH)" opacity="0.88">𝄞</text>
+          </svg>
+        </div>
+
+        <!-- Scritte sotto il cerchio -->
+        <div class="hero-logo-name">VALÈA</div>
+        <div class="hero-logo-tagline">Vocal Coaching</div>
+        <div class="hero-logo-location">Verona · Italy</div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Tagline + CTA -->
   <div class="hero-left">
-    <p class="hero-eyebrow">Vocal Coach · Verona, Italy</p>
-    <h1 class="hero-title">The voice<br>you were<br><em>born to have.</em></h1>
-    <p class="hero-subtitle">Private vocal coaching rooted in Italian conservatory tradition</p>
+    <h1 class="hero-title">The voice you were <em>born to have.</em></h1>
     <div class="hero-cta">
       <a href="#contact" class="btn-primary"><span>Begin your journey</span></a>
       <a href="#about" class="btn-ghost">Discover more</a>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-image-container">
-      <div class="hero-visual">
-        <div class="hero-letter">V</div>
-      </div>
-    </div>
-    <div class="hero-line"></div>
-  </div>
+
   <div class="scroll-indicator">
     <div class="scroll-line"></div>
     <span>Scroll</span>
@@ -992,7 +1088,7 @@
       "A voice is not simply an instrument — 
       it is the most <em>intimate</em> expression of who you are."
     </p>
-    <footer class="quote-author reveal">Valeatis · Vocal Coaching</footer>
+    <footer class="quote-author reveal">Valèa · Vocal Coaching</footer>
   </blockquote>
 </section>
 
@@ -1061,12 +1157,52 @@
 
 <!-- Footer -->
 <footer>
-  <span class="footer-logo">Valeatis</span>
-  <span class="footer-tagline">A voice to be</span>
+  <span class="footer-logo">Valèa</span>
+  <span class="footer-tagline">Vocal Coaching</span>
   <span class="footer-right">Verona, Italy · © 2026</span>
 </footer>
 
 <script>
+  // ── LOGO ORBIT ANIMATION ──
+  (function() {
+    const canvas = document.getElementById('orbitCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    // 300x300 canvas, V center ~150,162 (midpoint of V glyph), R=132
+    const CX = 150, CY = 162, R = 132;
+    let angle = -Math.PI / 2;
+    function drawOrbit() {
+      ctx.clearRect(0, 0, 300, 300);
+      ctx.beginPath();
+      ctx.arc(CX, CY, R, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(201,169,110,0.35)';
+      ctx.lineWidth = 0.8;
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(CX, CY, R + 3, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(201,169,110,0.15)';
+      ctx.lineWidth = 0.4;
+      ctx.stroke();
+      const dotX = CX + R * Math.cos(angle);
+      const dotY = CY + R * Math.sin(angle);
+      const glow = ctx.createRadialGradient(dotX, dotY, 0, dotX, dotY, 9);
+      glow.addColorStop(0, 'rgba(232,213,176,0.9)');
+      glow.addColorStop(0.4, 'rgba(201,169,110,0.6)');
+      glow.addColorStop(1, 'rgba(201,169,110,0)');
+      ctx.beginPath();
+      ctx.arc(dotX, dotY, 9, 0, Math.PI * 2);
+      ctx.fillStyle = glow;
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(dotX, dotY, 4, 0, Math.PI * 2);
+      ctx.fillStyle = '#e8d5b0';
+      ctx.fill();
+      angle += 0.003;
+      requestAnimationFrame(drawOrbit);
+    }
+    drawOrbit();
+  })();
+
   // Custom cursor
   const cursor = document.getElementById('cursor');
   const cursorRing = document.getElementById('cursorRing');
