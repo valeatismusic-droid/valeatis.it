@@ -1,0 +1,65 @@
+<!--
+  DATI STRUTTURATI (JSON-LD) — incollare dentro <head> di index.html.
+  IMPORTANTE: sostituisci "IL TUO NOME" con il nome reale del vocal coach
+  (puoi anche aggiungere "sameAs" con i link ai social/profili pubblici).
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["LocalBusiness", "MusicSchool"],
+      "@id": "https://www.valeatis.it/#business",
+      "name": "Valeatis Vocal Coaching",
+      "url": "https://www.valeatis.it/",
+      "image": "https://www.valeatis.it/og-image.jpg",
+      "description": "Private online singing lessons in English with an Italian conservatory-trained vocal coach. Pop, rock, classical and funk. First 30-minute lesson free.",
+      "areaServed": "Worldwide",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sommacampagna",
+        "addressRegion": "Verona",
+        "addressCountry": "IT"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 45.3964,
+        "longitude": 10.8467
+      },
+      "founder": { "@id": "https://www.valeatis.it/#person" },
+      "makesOffer": { "@id": "https://www.valeatis.it/#service" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.valeatis.it/#person",
+      "name": "Valentina",
+      "jobTitle": "Vocal Coach",
+      "worksFor": { "@id": "https://www.valeatis.it/#business" },
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "Conservatorio F.A. Bonporti, Trento" },
+        { "@type": "CollegeOrUniversity", "name": "Conservatorio di Verona" }
+      ],
+      "knowsLanguage": ["en", "it"],
+      "description": "Italian vocal coach trained at two conservatories, teaching pop, rock, classical and funk singing online in English since 2015, with international experience in Italy and Canada."
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.valeatis.it/#service",
+      "serviceType": "Online singing lessons",
+      "name": "Online Singing Lessons in English",
+      "provider": { "@id": "https://www.valeatis.it/#business" },
+      "areaServed": "Worldwide",
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://www.valeatis.it/#contact"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR",
+        "description": "First 30-minute lesson free"
+      }
+    }
+  ]
+}
+</script>
